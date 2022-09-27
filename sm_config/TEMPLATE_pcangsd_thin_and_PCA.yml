@@ -26,6 +26,10 @@ bamlist: /path/to/bamlist.txt
 batch_name_GL: batch_name_from_GLs
 batch_name_PCA: PCA_batch_name
 
+# The path to the location of the pcangsd.py script
+# Include the full path to the pcangsd.py file, not just to the directory containing it. 
+path_to_pcangsd: "~/bin/pcangsd.py"
+
 # Thinning interval
 # minimum number of bp required between SNPs
 thin_interval: 10000

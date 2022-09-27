@@ -30,6 +30,9 @@ BATCH_NAME_PCA = config["batch_name_PCA"]
 # Thinning interval
 INTERVAL = config["thin_interval"]
 
+# Path of pcangsd executable
+PCANGSD_path=config["path_to_pcangsd"]
+
 ###############
 ##   SETUP   ##
 ############### 
