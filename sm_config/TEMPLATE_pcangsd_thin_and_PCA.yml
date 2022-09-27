@@ -1,0 +1,37 @@
+###
+# Template config file for:
+# pcangsd_thin_and_PCA.smk
+# Takes a set of input GL files
+# from ANGSD with -doGlf 2
+# thins them, combined them,
+# and runs a genome-wide PCA
+###
+
+# Reference genome
+# The pipeline assumes that, in the same folder as the reference genome file, there is a genome index file
+# with the same filename and an appended .fai suffix.
+# See http://www.htslib.org/doc/faidx.html
+ref_genome: /path/to/reference/genome.fa
+
+# Bamlists giving the list of files that went into the
+# calculation of the GLs for the .saf index files for each population
+# Bamlist should give the absolute path to the bamfiles, from the root. 
+bamlist: /path/to/bamlist.txt
+
+# Batch name
+# A short name to give for a given analysis batch.
+# the batch for the GL files should match the batch name used when
+# generatiing the GLs
+# The batch name for the PCA should be new and unique to the analysis set
+batch_name_GL: batch_name_from_GLs
+batch_name_PCA: PCA_batch_name
+
+# Thinning interval
+# minimum number of bp required between SNPs
+thin_interval: 10000
+
+# Number of CPUs to use
+# for individual jobs.
+cpus: 36
+
+

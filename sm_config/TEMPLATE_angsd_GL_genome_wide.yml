@@ -17,7 +17,7 @@ ref_genome: /path/to/reference/genome.fa
 # Bamlist file giving samples to calculate GLs for.
 # Simple text file, with one .bam file per line
 # Bamlist should give the absolute path to the bamfiles, from the root. 
-bamlist: /path/tp/bamlist.txt
+bamlist: /path/to/bamlist.txt
 
 
 # Batch name
