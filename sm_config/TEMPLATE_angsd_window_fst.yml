@@ -1,0 +1,61 @@
+###
+# Template config file for:
+# angsd_window_fst.smk
+# Calculates slinding-window Fst between two populations
+# Assumes populations have already had .saf files calculated with the 
+# the angsd_GL_genome_wide.smk pipeline
+###
+
+####################
+## Pipeline setup ##
+####################
+
+# Reference genome
+# The pipeline assumes that, in the same folder as the reference genome file, there is a genome index file
+# with the same filename and an appended .fai suffix.
+# See http://www.htslib.org/doc/faidx.html
+ref_genome: /path/to/reference/genome.fa
+
+# Bamlists giving the list of files that went into the
+# calculation of the GLs for the .saf index files for each population
+# Bamlist should give the absolute path to the bamfiles, from the root. 
+pop1_bamlist: /path/to/population1/bamlist.txt
+pop2_bamlist: /path/to/population2/bamlist.txt
+
+
+# Batch names
+# A short name to give for a given analysis batch.
+# the batch names for the populations should match the batch names used
+# for creating the .saf files
+# The batch name for the Fst file should be new and unique to the analysis set
+# by analysis set, I mean the set of previous analyses and filters
+# One could run this pipeline multiple tim
+pop1_batch_name: pop_1_batch_name
+pop2_batch_name: pop_1_batch_name
+fst_batch_name: new_batch_for_Fst_analysis
+
+# Scaffold to use for calculating 2d_SFS
+# The 2d_SFS is used as a prior when calculating Fst
+# To save memory, this pipeline calculates the 2d_SFS from only one scaffold,
+# instead of genome-wide. 
+# Generally, should pick a large scaffold with many SNPs.
+# Should be a character, so put in quotes if scaffold names are numeric
+scaffold_prior: "1"
+
+# Number of CPUs to use
+# for individual jobs.
+cpus: 36
+
+# Window parameters
+# Needs to be a character, for type compatibility in making filenames
+# Can list multiple, but it will do all possible combinations at the moment
+win_size: ["10000"]
+win_step: ["10000"]
+
+# Test or not
+# if True, will calculate Fsts for the 3 smallest scaffolds
+# as a test
+# if False, does all scaffolds
+# Must be True or False. 
+test: False
+
