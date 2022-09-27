@@ -5,11 +5,11 @@ cluster:
     --partition={resources.partition}
     --mem={resources.mem}
     --time={resources.time}
-    --cpus-per-task={resources.threads}
+    --cpus-per-task={resources.cpus}
     --job-name={rule}-{wildcards}
     --output=logs/slurm_logs/{rule}/{rule}-{wildcards}-%j.out
 default-resources: 
-  - threads=1
+  - cpus=1
   - time="06:00:00"
 max-jobs-per-second: 10
 max-status-checks-per-second: 1
